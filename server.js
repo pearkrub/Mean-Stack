@@ -1,6 +1,6 @@
-var connect = require('connect')
+var express = require('express')
 
-var app = connect()
+var app = express()
 
 var logger = function(req, res, next) {
     res.setHeader('Content-Type', 'text/plain')
@@ -17,3 +17,5 @@ app.use('/hello',hello)
 app.listen(3000)
 
 console.log('Server Running at http://localhost:3000')
+
+module.exports = app

@@ -7,8 +7,9 @@
   },
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "Learning MEAN Stack",
   "dependencies": {
-    "connect": "^3.6.6"
+    "connect": "^3.6.6",
+    "express": "^4.16.3"
   }
 }
