@@ -9,7 +9,7 @@ var logger = function(req, res, next) {
 
 var hello = function(req, res, next) {
     res.setHeader('Content-Type', 'text/plain')
-    res.end('Hi')
+    res.end(req.ip)
 }
 app.use('/log',logger)
 app.use('/hello',hello)
