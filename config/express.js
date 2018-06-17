@@ -2,6 +2,7 @@ var express = require('express')
 var morgan = require('morgan')
 var compression = require('compression')
 var bodyParser = require('body-parser')
+var sass = require('node-sass-middleware')
 
 module.exports = function() {
     var app = express()
@@ -15,10 +16,19 @@ module.exports = function() {
     app.use(bodyParser.urlencoded({
         extended: true
     }))
-
     app.use(bodyParser.json())
-    
-    require('../app/routes/index.routes')(app)
 
+    app.set('views', './app/views')
+    app.set('view engine', 'jade')
+
+    require('../app/routes/index.routes')(app)
+    
+    app.use(sass({
+        src: './sass',
+        dest: './public/css',
+        outputStyle: 'compressed'
+    }))
+    app.use(express.static('./public'))
+    
     return app
 }
