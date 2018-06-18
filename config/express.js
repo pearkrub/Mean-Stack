@@ -26,7 +26,9 @@ module.exports = function() {
     app.use(sass({
         src: './sass',
         dest: './public/css',
-        outputStyle: 'compressed'
+        outputStyle: 'compressed',
+        prefix: '/css',
+        debug: true
     }))
     app.use(express.static('./public'))
     
