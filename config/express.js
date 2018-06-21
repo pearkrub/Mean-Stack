@@ -10,7 +10,7 @@ module.exports = function() {
     if(process.env.NODE_ENV === 'development') {
         app.use(morgan('dev'))
     }else{
-        app.use('compression')
+        app.use(compression())
     }   
 
     app.use(bodyParser.urlencoded({
